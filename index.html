@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambernay Trotter: Cat Says Moo</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="root">
+        <div id="grid">
+            <div class="heading-wrapper">
+                <header class="heading title">Cat Says Moo</header>
+                <a href="https:/ambermoo.github.io/personal-website-repo/" class="heading home-link">Home</a>
+            </div>
+            <div class="image-wrapper">
+                <div class="img-space">
+                    <img src="images/1_Hangry.jpg" id="img_1" isVisible="visible">
+                    <img src="images/2_Hangry.jpg" id="img_2" isVisible="hidden">
+                    <img src="images/3_Hangry.jpg" id="img_3" isVisible="hidden">
+                </div>
+            </div>
+            <div class="img-links-wrapper">
+                <a href="#img_1" class="img-link part-1" onclick="showImage()">Part 1</a>
+                <a href="#img_2" class="img-link part-2" onclick="showImage()">Part 2</a>
+                <a href="#img_3" class="img-link part-3" onclick="showImage()">Part 3</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showImage(){
+            // get href of requested image and remove #
+            let imageRequest = document.activeElement.getAttribute("href").substring(1);
+            // get cooresponding image from imageRequest
+            let activeImage = document.getElementById(imageRequest);
+            // element list of all images
+            let allImages = activeImage.parentElement.children;
+
+            // reset all image "isVisible" attribute to "hidden"
+            for (i = 0; i < allImages.length; i++){
+                let image = allImages[i];
+                image.setAttribute('isVisible', 'hidden');
+            }
+            // set activeImage "isVisible" attribute to "visible"
+            activeImage.setAttribute('isVisible', 'visible');
+        }
+    </script>
+</body>
